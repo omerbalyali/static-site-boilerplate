@@ -27,7 +27,6 @@ module.exports = {
     filename: `${SITE_CONFIG.paths.scripts}/${SITE_CONFIG.compilation.fileExtensions.js}`,
     path: SITE_CONFIG.paths.dist,
     publicPath: SITE_CONFIG.compilation.publicPath,
-    libraryTarget: 'commonjs2',
   },
   module: {
     rules: [
