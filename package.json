@@ -2,7 +2,7 @@
   "name": "webpack-static-boilerplate",
   "author": "Ömer Balyali<omerbalyali@gmail.com>",
   "description": "Webpack boilerplate for static websites",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.9.0",
