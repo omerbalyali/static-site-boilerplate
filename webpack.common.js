@@ -6,9 +6,10 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const FaviconsPlugin = require('favicons-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const _ = require('lodash');
 const SITE_CONFIG = require('./website.config');
+require('dotenv').config();
 /* eslint-disable */
 
 const devMode = process.env.NODE_ENV !== 'production';
@@ -186,11 +187,22 @@ const faviconsPlugin = devMode
 
 const manifestPlugin = devMode ? [] : [new ManifestPlugin()];
 
+const browserSyncPlugin = devMode
+  ? [
+      new BrowserSyncPlugin(
+        {
+          host: 'localhost',
+          port: 3000,
+          proxy: `${process.env.HOST}:${process.env.PORT}`,
+        },
+        { reload: true, injectCss: true },
+      ),
+    ]
+  : [];
+
 const dashboardPlugin = new DashboardPlugin({
   port: process.env.PORT,
 });
-
-const dotenvPlugin = [new Dotenv()];
 
 module.exports = {
   devMode,
@@ -205,5 +217,5 @@ module.exports = {
   faviconsPlugin,
   manifestPlugin,
   dashboardPlugin,
-  dotenvPlugin,
+  browserSyncPlugin,
 };

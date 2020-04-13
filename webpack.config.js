@@ -2,6 +2,7 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const COMMONS = require('./webpack.common');
 const SITE_CONFIG = require('./website.config');
+require('dotenv').config();
 /* eslint-enable */
 
 module.exports = {
@@ -17,10 +18,6 @@ module.exports = {
     host: process.env.HOST,
     port: process.env.PORT,
     open: false,
-    watchOptions: {
-      aggregateTimeout: 300,
-      poll: 1000,
-    },
   },
   target: 'node',
   output: {
@@ -39,7 +36,7 @@ module.exports = {
     ],
   },
   plugins: [
-    ...COMMONS.dotenvPlugin,
+    ...COMMONS.browserSyncPlugin,
     new CleanWebpackPlugin(),
     ...COMMONS.manifestPlugin,
     ...COMMONS.faviconsPlugin,

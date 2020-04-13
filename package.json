@@ -15,10 +15,11 @@
     "@typescript-eslint/parser": "^2.27.0",
     "autoprefixer": "^9.7.6",
     "babel-loader": "^8.1.0",
+    "browser-sync": "^2.26.7",
+    "browser-sync-webpack-plugin": "^2.2.2",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.5.1",
     "cssnano": "^4.1.10",
-    "dotenv-webpack": "^1.7.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-config-prettier": "^6.10.1",
@@ -54,7 +55,7 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --mode=production",
     "develop": "NODE_ENV=development nodemon --watch webpack.config.js --exec yarn devServer",
-    "devServer": "NODE_ENV=development webpack-dev-server --config webpack.config.js --mode=development",
+    "devServer": "NODE_ENV=development webpack-dev-server --progress --colors --config webpack.config.js --mode=development",
     "lint": "tsc --noEmit && eslint '*/**/*.{js,jsx,ts,tsx}' --quiet --fix"
   },
   "husky": {
@@ -79,5 +80,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0"
   }
 }
