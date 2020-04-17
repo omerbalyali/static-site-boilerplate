@@ -41,6 +41,7 @@ module.exports = {
   },
   compilation: {
     cssModules: true,
+    cssMediaQueries: './src/assets/styles/commons/mediaqueries.css',
     entryPoint: './src/assets/scripts/index.ts',
     fileExtensions: {
       js: '[name]-[contenthash:12].min.js',
@@ -58,6 +59,9 @@ module.exports = {
     stats: 'errors-only',
   },
   optimization: {
+    svgo: {
+      cleanupIDs: true,
+    },
     images: {
       mozjpeg: {
         progressive: true,

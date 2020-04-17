@@ -40,7 +40,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     ...COMMONS.manifestPlugin,
     ...COMMONS.faviconsPlugin,
-    COMMONS.extractCSSPlugin,
     ...COMMONS.generateHTMLPages,
+    COMMONS.extractCSSPlugin,
   ],
 };
